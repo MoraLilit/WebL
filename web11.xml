@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="web11">
+
+  <path id="common_Library">
+    <pathelement location="localtest/apache-tomcat-9.0.14/lib/servlet-api.jar"/>
+    <pathelement location="WEB-INF/lib/mysql-connector-java-8.0.13.jar"/>
+  </path>
+
+  <target name="clean">
+    <delete dir="web/WEB-INF/classes/Class"/>
+    <delete dir="web/WEB-INF/classes/Servlets"/>
+  </target>
+
+  <target name="compile" depends="clean">
+    <javac srcdir="src" destdir="web\WEB-INF\classes" failonerror="true" fork="true" includeantruntime="false">
+      <classpath refid="common_Library"/>
+    </javac>
+  </target>
+</project>
